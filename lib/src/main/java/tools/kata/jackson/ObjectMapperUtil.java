@@ -9,4 +9,8 @@ public class ObjectMapperUtil {
     public <T> String writeJsonAsString(T anyType) throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(anyType);
     }
+
+    public Person readFromJsonString(String jsonString, Class<Person> personClass) {
+        return new Person("", 1);
+    }
 }

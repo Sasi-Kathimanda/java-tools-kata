@@ -7,7 +7,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ObjectMapperUtilTest {
+    public static final String PERSON_JSON = "{\"name\":\"Sas\",\"age\":18}";
     ObjectMapperUtil sut;
+    Person person = new Person("Sas", 18);
 
     @BeforeEach
     void setUp() {
@@ -16,8 +18,14 @@ class ObjectMapperUtilTest {
 
     @Test
     void writeJsonAsString() throws JsonProcessingException {
-        Person person = new Person("Sas", 18);
         var actual = sut.writeJsonAsString(person);
-        assertEquals("{\"name\":\"Sas\",\"age\":18}", actual);
+        assertEquals(PERSON_JSON, actual);
+    }
+
+    @Test
+    void readPersonFromJson() {
+        Person actual = sut.readFromJsonString(PERSON_JSON, Person.class);
+        assertEquals("Sas", actual.getName());
+        assertEquals(18, actual.getAge());
     }
 }
