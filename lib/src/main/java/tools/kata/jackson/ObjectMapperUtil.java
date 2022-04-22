@@ -10,7 +10,7 @@ public class ObjectMapperUtil {
         return new ObjectMapper().writeValueAsString(anyType);
     }
 
-    public Person readFromJsonString(String jsonString, Class<Person> personClass) {
-        return new Person("", 1);
+    public Person readFromJsonString(String jsonString, Class<Person> personClass) throws JsonProcessingException {
+        return new ObjectMapper().readValue(jsonString,personClass);
     }
 }

@@ -23,7 +23,7 @@ class ObjectMapperUtilTest {
     }
 
     @Test
-    void readPersonFromJson() {
+    void readPersonFromJson() throws JsonProcessingException {
         Person actual = sut.readFromJsonString(PERSON_JSON, Person.class);
         assertEquals("Sas", actual.getName());
         assertEquals(18, actual.getAge());
