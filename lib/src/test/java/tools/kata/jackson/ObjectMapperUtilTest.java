@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -32,8 +33,8 @@ class ObjectMapperUtilTest {
     }
 
     @Test
-    void readPersonFromJsonAsFile() {
-        Person actual = sut.readFromJsonFile(new File("lib/src/test/resources/person.json"), Person.class);
+    void readPersonFromJsonAsFile() throws IOException {
+        Person actual = sut.readFromJsonFile(new File("src/test/resources/person.json"), Person.class);
         assertEquals("Sas", actual.getName());
         assertEquals(18, actual.getAge());
     }
