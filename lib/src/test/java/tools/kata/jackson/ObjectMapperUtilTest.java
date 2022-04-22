@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ObjectMapperUtilTest {
@@ -25,6 +27,13 @@ class ObjectMapperUtilTest {
     @Test
     void readPersonFromJson() throws JsonProcessingException {
         Person actual = sut.readFromJsonString(PERSON_JSON, Person.class);
+        assertEquals("Sas", actual.getName());
+        assertEquals(18, actual.getAge());
+    }
+
+    @Test
+    void readPersonFromJsonAsFile() {
+        Person actual = sut.readFromJsonFile(new File("lib/src/test/resources/person.json"), Person.class);
         assertEquals("Sas", actual.getName());
         assertEquals(18, actual.getAge());
     }
