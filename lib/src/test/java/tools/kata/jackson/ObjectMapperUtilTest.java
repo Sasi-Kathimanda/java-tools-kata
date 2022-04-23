@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -35,6 +37,13 @@ class ObjectMapperUtilTest {
     @Test
     void readPersonFromJsonAsFile() throws IOException {
         Person actual = sut.readFromJsonFile(new File("src/test/resources/person.json"), Person.class);
+        assertEquals("Sas", actual.getName());
+        assertEquals(18, actual.getAge());
+    }
+
+    @Test
+    void readPersonFromURL() throws MalformedURLException {
+        Person actual = sut.readFromURL(new URL("file:src/test/resources/person.json"), Person.class);
         assertEquals("Sas", actual.getName());
         assertEquals(18, actual.getAge());
     }

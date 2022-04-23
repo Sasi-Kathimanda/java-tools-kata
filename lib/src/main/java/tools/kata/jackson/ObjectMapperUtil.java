@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 public class ObjectMapperUtil {
 
@@ -13,11 +14,15 @@ public class ObjectMapperUtil {
         return new ObjectMapper().writeValueAsString(anyType);
     }
 
-    public Person readFromJsonString(String jsonString, Class<Person> personClass) throws JsonProcessingException {
+    public <T> T readFromJsonString(String jsonString, Class<T> personClass) throws JsonProcessingException {
         return new ObjectMapper().readValue(jsonString, personClass);
     }
 
-    public Person readFromJsonFile(File file, Class<Person> personClass) throws IOException {
-        return new ObjectMapper().readValue(file, personClass);
+    public <T> T readFromJsonFile(File file, Class<T> aClass) throws IOException {
+        return new ObjectMapper().readValue(file, aClass);
+    }
+
+    public <T> T readFromURL(URL url, Class<T> personClass) {
+        return (T) new Person("",0);
     }
 }
