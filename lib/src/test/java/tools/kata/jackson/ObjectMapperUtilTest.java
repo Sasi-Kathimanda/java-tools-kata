@@ -42,7 +42,7 @@ class ObjectMapperUtilTest {
     }
 
     @Test
-    void readPersonFromURL() throws MalformedURLException {
+    void readPersonFromURL() throws IOException {
         Person actual = sut.readFromURL(new URL("file:src/test/resources/person.json"), Person.class);
         assertEquals("Sas", actual.getName());
         assertEquals(18, actual.getAge());

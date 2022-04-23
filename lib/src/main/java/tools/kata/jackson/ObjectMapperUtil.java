@@ -22,7 +22,7 @@ public class ObjectMapperUtil {
         return new ObjectMapper().readValue(file, aClass);
     }
 
-    public <T> T readFromURL(URL url, Class<T> personClass) {
-        return (T) new Person("",0);
+    public <T> T readFromURL(URL url, Class<T> aClass) throws IOException {
+        return new ObjectMapper().readValue(url, aClass);
     }
 }
