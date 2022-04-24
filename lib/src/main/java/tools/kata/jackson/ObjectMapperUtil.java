@@ -2,6 +2,7 @@ package tools.kata.jackson;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
@@ -20,15 +21,15 @@ public class ObjectMapperUtil {
         return new ObjectMapper().readValue(jsonString, aClass);
     }
 
-    protected  <T> T readFromJsonFile(File file, Class<T> aClass) throws IOException {
+    protected <T> T readFromJsonFile(File file, Class<T> aClass) throws IOException {
         return new ObjectMapper().readValue(file, aClass);
     }
 
-    protected  <T> T readFromURL(URL url, Class<T> aClass) throws IOException {
+    protected <T> T readFromURL(URL url, Class<T> aClass) throws IOException {
         return new ObjectMapper().readValue(url, aClass);
     }
-
-    protected  <T> List<T> readListFromJsonString(String json, Class<T> aClass) {
-        return new ArrayList<>();
+    //TODO: accept generic type ?
+    protected List<Person> readListFromJsonString(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<>() {});
     }
 }

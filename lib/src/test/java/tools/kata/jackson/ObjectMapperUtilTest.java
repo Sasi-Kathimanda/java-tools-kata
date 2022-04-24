@@ -7,13 +7,14 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ObjectMapperUtilTest {
     public static final String PERSON_JSON = "{\"name\":\"Sas\",\"age\":18}";
-    public static final String PERSONS_LIST_JSON = "{\"name\":\"Sas\",\"age\":18, \"name:\"Kiran\",\"age\":28}";
+    public static final String PERSONS_LIST_JSON = "[{\"name\":\"Sas\",\"age\":18}, {\"name\":\"Kiran\",\"age\":28}]";
     ObjectMapperUtil sut;
     Person person = new Person("Sas", 18);
 
@@ -50,8 +51,8 @@ class ObjectMapperUtilTest {
     }
 
     @Test
-    void readPersonsFromJson() {
-        List<Person> actual = sut.readListFromJsonString(PERSON_JSON, Person.class);
+    void readPersonsFromJson() throws JsonProcessingException {
+        List<Person> actual = sut.readListFromJsonString(PERSONS_LIST_JSON);
         assertEquals(2, actual.size());
         assertEquals("Sas", actual.get(0).getName());
         assertEquals(18, actual.get(0).getAge());
