@@ -61,8 +61,9 @@ class ObjectMapperUtilTest {
     }
 
     @Test
-    void readAsMapFromJson() {
+    void readAsMapFromJson() throws JsonProcessingException {
         Map<String, String> map = sut.readAsMapFromJson(PERSON_JSON);
-        assertEquals(1, map.size());
+        assertEquals(2, map.size());
+        assertEquals("{name=Sas, age=18}", map.toString());
     }
 }

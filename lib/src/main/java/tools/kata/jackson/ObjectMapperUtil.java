@@ -28,12 +28,15 @@ public class ObjectMapperUtil {
     protected <T> T readFromURL(URL url, Class<T> aClass) throws IOException {
         return new ObjectMapper().readValue(url, aClass);
     }
+
     //TODO: accept generic type ?
     protected List<Person> readListFromJsonString(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<>() {});
+        return new ObjectMapper().readValue(json, new TypeReference<>() {
+        });
     }
 
-    public Map<String, String> readAsMapFromJson(String json) {
-        return Map.of();
+    public Map<String, String> readAsMapFromJson(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<>() {
+        });
     }
 }
