@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
+import java.util.Map;
 
 public class ObjectMapperUtil {
 
@@ -30,5 +31,9 @@ public class ObjectMapperUtil {
     //TODO: accept generic type ?
     protected List<Person> readListFromJsonString(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, new TypeReference<>() {});
+    }
+
+    public Map<String, String> readAsMapFromJson(String json) {
+        return Map.of();
     }
 }

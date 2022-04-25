@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -58,5 +58,11 @@ class ObjectMapperUtilTest {
         assertEquals(18, actual.get(0).getAge());
         assertEquals("Kiran", actual.get(1).getName());
         assertEquals(28, actual.get(1).getAge());
+    }
+
+    @Test
+    void readAsMapFromJson() {
+        Map<String, String> map = sut.readAsMapFromJson(PERSON_JSON);
+        assertEquals(1, map.size());
     }
 }
