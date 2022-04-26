@@ -1,6 +1,8 @@
 package tools.kata.jackson;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,8 +13,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ObjectMapperUtilTest {
     public static final String PERSON_JSON = "{\"name\":\"Sas\",\"age\":18}";
@@ -64,8 +65,15 @@ class ObjectMapperUtilTest {
     }
 
     @Test
-    void readPersonsFromJsonWithUnknownField()  {
-        assertThrows(UnrecognizedPropertyException.class, () -> sut.readFromJsonString(PERSON_JSON_WITH_UNKNOWN_FIELD , Person.class));
+    void readPersonsFromJsonWithUnknownField() {
+        assertThrows(UnrecognizedPropertyException.class, () -> sut.readFromJsonString(PERSON_JSON_WITH_UNKNOWN_FIELD, Person.class));
+    }
+
+    @Test
+    void readPersonsFromJsonWithUnknownFieldWithUnknownIgnoreInMapper() {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        assertDoesNotThrow(() -> sut.readFromJsonString(PERSON_JSON_WITH_UNKNOWN_FIELD, Person.class, mapper), "UnrecognizedPropertyException not thrown");
     }
 
     @Test

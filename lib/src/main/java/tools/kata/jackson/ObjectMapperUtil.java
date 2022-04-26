@@ -21,6 +21,10 @@ public class ObjectMapperUtil {
         return new ObjectMapper().readValue(jsonString, aClass);
     }
 
+    protected  <T> T readFromJsonString(String jsonString, Class<T> aClass , ObjectMapper mapper) throws JsonProcessingException {
+        return mapper.readValue(jsonString, aClass);
+    }
+
     protected <T> T readFromJsonFile(File file, Class<T> aClass) throws IOException {
         return new ObjectMapper().readValue(file, aClass);
     }
