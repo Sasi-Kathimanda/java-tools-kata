@@ -1,6 +1,7 @@
 package tools.kata.jackson;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,9 +12,11 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ObjectMapperUtilTest {
     public static final String PERSON_JSON = "{\"name\":\"Sas\",\"age\":18}";
+    public static final String PERSON_JSON_WITH_UNKNOWN_FIELD = "{\"name\":\"Sas\",\"age\":18, \"id\":\"007\"}";
     public static final String PERSONS_LIST_JSON = "[{\"name\":\"Sas\",\"age\":18}, {\"name\":\"Kiran\",\"age\":28}]";
     ObjectMapperUtil sut;
     Person person = new Person("Sas", 18);
@@ -58,6 +61,11 @@ class ObjectMapperUtilTest {
         assertEquals(18, actual.get(0).getAge());
         assertEquals("Kiran", actual.get(1).getName());
         assertEquals(28, actual.get(1).getAge());
+    }
+
+    @Test
+    void readPersonsFromJsonWithUnknownField()  {
+        assertThrows(UnrecognizedPropertyException.class, () -> sut.readFromJsonString(PERSON_JSON_WITH_UNKNOWN_FIELD , Person.class));
     }
 
     @Test
