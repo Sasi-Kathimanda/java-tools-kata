@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -17,8 +18,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ObjectMapperUtilTest {
     public static final String PERSON_JSON = "{\"name\":\"Sas\",\"age\":18}";
+    public static final String PERSON_JSON_WITH_MISSING_FIELD = "{\"name\":\"Sas\"}";
     public static final String PERSON_JSON_WITH_UNKNOWN_FIELD = "{\"name\":\"Sas\",\"age\":18, \"id\":\"007\"}";
-    public static final String PERSONS_LIST_JSON = "[{\"name\":\"Sas\",\"age\":18}, {\"name\":\"Kiran\",\"age\":28}]";
+    public static final String PERSON_LIST_JSON = "[{\"name\":\"Sas\",\"age\":18}, {\"name\":\"Kiran\",\"age\":28}]";
     ObjectMapperUtil sut;
     Person person = new Person("Sas", 18);
 
@@ -56,7 +58,7 @@ class ObjectMapperUtilTest {
 
     @Test
     void readPersonsFromJson() throws JsonProcessingException {
-        List<Person> actual = sut.readListFromJsonString(PERSONS_LIST_JSON);
+        List<Person> actual = sut.readListFromJsonString(PERSON_LIST_JSON);
         assertEquals(2, actual.size());
         assertEquals("Sas", actual.get(0).getName());
         assertEquals(18, actual.get(0).getAge());
@@ -70,10 +72,21 @@ class ObjectMapperUtilTest {
     }
 
     @Test
+    @DisplayName("FAIL_ON_UNKNOWN_PROPERTIES")
     void readPersonsFromJsonWithUnknownFieldWithUnknownIgnoreInMapper() {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         assertDoesNotThrow(() -> sut.readFromJsonString(PERSON_JSON_WITH_UNKNOWN_FIELD, Person.class, mapper), "UnrecognizedPropertyException not thrown");
+    }
+
+    @Test
+    @DisplayName("FAIL_ON_NULL_FOR_PRIMITIVES")
+    void readPersonsFromJsonWithMissingFieldInJson() throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES, false);
+        assertDoesNotThrow(() -> sut.readFromJsonString(PERSON_JSON_WITH_MISSING_FIELD, Person.class, mapper), "MismatchedInputException not thrown : Cannot coerce `null` to `int` value");
+        Person person = sut.readFromJsonString(PERSON_JSON_WITH_MISSING_FIELD, Person.class, mapper);
+        assertEquals(0, person.getAge());
     }
 
     @Test
