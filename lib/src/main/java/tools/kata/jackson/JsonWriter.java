@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonWriter {
 
-    protected  <T> String writeJsonAsString(T anyType) throws JsonProcessingException {
-        return new ObjectMapper().writeValueAsString(anyType);
+    protected  <T> String writeJsonAsString(T anyType , ObjectMapper mapper) throws JsonProcessingException {
+        return mapper.writeValueAsString(anyType);
     }
 }
