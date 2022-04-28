@@ -16,24 +16,19 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ObjectMapperUtilTest {
+class JsonReaderTest {
     public static final String PERSON_JSON = "{\"name\":\"Sas\",\"age\":18}";
     public static final String PERSON_JSON_WITH_MISSING_FIELD = "{\"name\":\"Sas\"}";
     public static final String PERSON_JSON_WITH_UNKNOWN_FIELD = "{\"name\":\"Sas\",\"age\":18, \"id\":\"007\"}";
     public static final String PERSON_LIST_JSON = "[{\"name\":\"Sas\",\"age\":18}, {\"name\":\"Kiran\",\"age\":28}]";
-    ObjectMapperUtil sut;
-    Person person = new Person("Sas", 18);
+    JsonReader sut;
+
 
     @BeforeEach
     void setUp() {
-        sut = new ObjectMapperUtil();
+        sut = new JsonReader();
     }
 
-    @Test
-    void writeJsonAsString() throws JsonProcessingException {
-        var actual = sut.writeJsonAsString(person);
-        assertEquals(PERSON_JSON, actual);
-    }
 
     @Test
     void readPersonFromJson() throws JsonProcessingException {

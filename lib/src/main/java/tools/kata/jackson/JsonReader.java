@@ -1,6 +1,5 @@
 package tools.kata.jackson;
 
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,12 +10,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.Map;
 
-public class ObjectMapperUtil {
-
-    protected  <T> String writeJsonAsString(T anyType) throws JsonProcessingException {
-        return new ObjectMapper().writeValueAsString(anyType);
-    }
-
+public class JsonReader {
     protected  <T> T readFromJsonString(String jsonString, Class<T> aClass) throws JsonProcessingException {
         return new ObjectMapper().readValue(jsonString, aClass);
     }
