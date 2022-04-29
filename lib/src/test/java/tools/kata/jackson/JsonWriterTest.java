@@ -36,7 +36,7 @@ class JsonWriterTest {
     @DisplayName("WRITE_DATES_AS_TIMESTAMPS")
     void writeDatesAsHumanReadable() throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-        mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS,false);
+        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
         var actual = sut.writeJsonAsString(person , mapper);
         assertEquals(PERSON_JSON_HUMAN_READABLE_DATE, actual);
     }
