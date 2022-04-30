@@ -13,7 +13,8 @@ import static org.junit.Assert.assertTrue;
 public class TemporaryFolderRuleTest {
     @Rule
     public TemporaryFolder temporaryFolder = TemporaryFolder.builder().assureDeletion().build();
-
+    @Rule
+    public TestMethodNameLogger customTestRuleTest = new TestMethodNameLogger();
     @Test
     public void givenTempFolder_WhenNewFile_TheFileIsCreated() throws IOException {
         File file = temporaryFolder.newFile("test.txt");
