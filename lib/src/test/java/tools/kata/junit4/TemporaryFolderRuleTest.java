@@ -1,12 +1,14 @@
-package tools.kata.junit;
+package tools.kata.junit4;
 
-import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
 import java.io.File;
 import java.io.IOException;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class TemporaryFolderRuleTest {
     @Rule
@@ -16,6 +18,7 @@ public class TemporaryFolderRuleTest {
     public void givenTempFolder_WhenNewFile_TheFileIsCreated() throws IOException {
         File file = temporaryFolder.newFile("test.txt");
 
-        Assert.assertTrue("file should be created", file.isFile());
+        assertTrue("file should be created", file.isFile());
+        assertEquals("temp file and temp folder should match", temporaryFolder.getRoot(), file.getParentFile());
     }
 }
