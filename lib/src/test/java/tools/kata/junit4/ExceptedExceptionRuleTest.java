@@ -13,4 +13,11 @@ public class ExceptedExceptionRuleTest {
         thrown.expect(NullPointerException.class);
         throw new NullPointerException();
     }
+
+    @Test
+    public void testWhenNPEThrownWithExpectedMessage() {
+        thrown.expect(NullPointerException.class);
+        thrown.expectMessage("Null Pointer Problem");
+        throw new NullPointerException("Null Pointer Problem");
+    }
 }
