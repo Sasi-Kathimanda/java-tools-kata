@@ -6,7 +6,7 @@ import org.junit.rules.Timeout;
 
 import java.util.concurrent.TimeUnit;
 
-public class TimeoutRule {
+public class TimeoutRuleTest {
 
     @Rule
     public Timeout timeout = new Timeout(2, TimeUnit.SECONDS);
