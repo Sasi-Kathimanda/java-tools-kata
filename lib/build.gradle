@@ -22,7 +22,7 @@ dependencies {
     testImplementation (platform('org.junit:junit-bom:5.8.2'))
     testImplementation 'org.junit.jupiter:junit-jupiter-api'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
-    testImplementation 'org.junit.vintage:junit-vintage-engine'
+    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine'
 
 
     // This dependency is exported to consumers, that is to say found on their compile classpath.
