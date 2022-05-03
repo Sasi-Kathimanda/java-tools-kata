@@ -1,7 +1,6 @@
 package tools.kata.junit4;
 
-import org.hamcrest.core.IsEqual;
-import org.hamcrest.core.IsNot;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ErrorCollector;
@@ -15,6 +14,7 @@ public class ErrorCollectorRule {
     public ErrorCollector collector = new ErrorCollector();
 
     @Test
+    @Ignore
     public void GivenErrorAdd_ThenCheckErrorIsAdded() {
         collector.addError(new Throwable("First Error"));
         collector.addError(new Throwable("Second Error"));
