@@ -3,8 +3,7 @@ package tools.kata.jackson.enums;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class LanguageTest {
     Language sut;
@@ -24,6 +23,7 @@ class LanguageTest {
     }
 
     @Test
-    void valueOf() {
+    void valueOfWithException() {
+        assertThrows(IllegalArgumentException.class, () -> Language.valueOf("telugu"));
     }
 }
