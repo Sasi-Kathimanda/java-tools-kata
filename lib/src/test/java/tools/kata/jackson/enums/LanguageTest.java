@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class LanguageTest {
     Language sut;
@@ -18,6 +19,8 @@ class LanguageTest {
         assertEquals(Language.TELUGU, Language.values()[0]);
         assertEquals(Language.ENGLISH, Language.values()[1]);
         assertEquals(Language.TAMIL, Language.values()[2]);
+        assertEquals("TELUGU", Language.values()[0].name());
+        assertTrue(Language.values()[0].equals(Language.TELUGU));
     }
 
     @Test
