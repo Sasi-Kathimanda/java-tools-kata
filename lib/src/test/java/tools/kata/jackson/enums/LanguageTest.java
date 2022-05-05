@@ -23,6 +23,10 @@ class LanguageTest {
     }
 
     @Test
+    void valuesOf() {
+        assertEquals(Language.TELUGU,Language.valueOf("TELUGU"));
+    }
+    @Test
     void valueOfWithException() {
         assertThrows(IllegalArgumentException.class, () -> Language.valueOf("telugu"));
     }
