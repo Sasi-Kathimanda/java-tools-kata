@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class EnumWriterTest {
     EnumWriter sut;
-    private final String expectedEnumJson = "\"TELUGU\"";
+    private final String EXPECTED_DEFAULT_ENUM = "\"TELUGU\"";
 
     @BeforeEach
     void setUp() {
@@ -18,7 +18,7 @@ class EnumWriterTest {
     @Test
     void testEnumWriterDefaultBehaviour() throws JsonProcessingException {
         var actualEnumString = sut.writeEnumAsJsonString(Language.TELUGU);
-        assertEquals(expectedEnumJson, actualEnumString);
+        assertEquals(EXPECTED_DEFAULT_ENUM, actualEnumString);
     }
 
 }
