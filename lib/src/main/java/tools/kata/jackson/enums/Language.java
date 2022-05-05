@@ -1,5 +1,8 @@
 package tools.kata.jackson.enums;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum Language {
     TELUGU(1, "TEL", "Namaskaram"),
     ENGLISH(2, "ENG", "HELLO"),
@@ -13,5 +16,13 @@ public enum Language {
         this.index = index;
         this.prefix = prefix;
         this.message = message;
+    }
+
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }
