@@ -18,6 +18,10 @@ public class LanguageSerializer extends StdSerializer<Language> {
 
     @Override
     public void serialize(Language value, JsonGenerator gen, SerializerProvider provider) throws IOException {
+        gen.writeStartObject();
+        gen.writeStringField("prefix", value.getPrefix());
+        gen.writeStringField("message", value.getMessage());
+        gen.writeEndObject();
     }
 
 }
