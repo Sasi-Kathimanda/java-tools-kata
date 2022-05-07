@@ -10,6 +10,11 @@ public class LanguageSerializerWithMaskedMsg extends JsonSerializer<Language> {
 
     @Override
     public void serialize(Language value, JsonGenerator gen, SerializerProvider serializers) throws IOException {
-
+        if (value.equals(Language.ENGLISH)) {
+            gen.writeStartObject();
+            gen.writeStringField("prefix", value.getPrefix());
+            gen.writeStringField("message", "****");
+            gen.writeEndObject();
+        }
     }
 }

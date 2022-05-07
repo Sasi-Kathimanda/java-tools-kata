@@ -1,9 +1,8 @@
 package tools.kata.jackson.enums;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
-@JsonSerialize(using = LanguageSerializer.class)
-//BuiltIn OPTION2:@JsonFormat(shape = JsonFormat.Shape.OBJECT)
+@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum Language {
     TELUGU(1, "TEL", "Namaskaram"),
     ENGLISH(2, "ENG", "HELLO"),
