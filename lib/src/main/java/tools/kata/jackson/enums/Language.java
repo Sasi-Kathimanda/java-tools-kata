@@ -1,9 +1,11 @@
 package tools.kata.jackson.enums;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum Language {
+    @JsonProperty("TELUGU")
     TELUGU(1, "TEL", "Namaskaram"),
     ENGLISH(2, "ENG", "HELLO"),
     TAMIL(3, "TAM", "Vanakkam");
