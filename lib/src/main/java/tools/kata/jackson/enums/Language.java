@@ -1,5 +1,6 @@
 package tools.kata.jackson.enums;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -26,5 +27,15 @@ public enum Language {
 
     public String getMessage() {
         return message;
+    }
+
+    @JsonCreator
+    public static Language forValues(@JsonProperty("prefix") String prefix, @JsonProperty("message") String message) {
+        for (Language language : Language.values()) {
+            if (language.prefix.equals(prefix) && language.message.equalsIgnoreCase(message)) {
+                return language;
+            }
+        }
+        throw new IllegalArgumentException(String.format("Unknown Language with details %s %s", prefix, message));
     }
 }
