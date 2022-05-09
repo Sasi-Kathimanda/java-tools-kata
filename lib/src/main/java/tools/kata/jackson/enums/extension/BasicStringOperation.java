@@ -19,7 +19,7 @@ public enum BasicStringOperation implements StringOperation {
     REVERSE("revers the text") {
         @Override
         public String apply(String input) {
-            return null;
+            return new StringBuilder(input).reverse().toString();
         }
     };
 

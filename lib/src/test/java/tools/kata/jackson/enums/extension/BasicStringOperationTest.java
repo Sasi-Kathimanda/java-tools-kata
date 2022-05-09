@@ -20,4 +20,10 @@ class BasicStringOperationTest {
         assertEquals(" HELLO ", actual);
     }
 
+    @Test
+    void givenOperationEnum_ShouldPerformREVERSEOperation() {
+        String input = " Hello ";
+        String actual = BasicStringOperation.REVERSE.apply(input);
+        assertEquals(" olleH ", actual);
+    }
 }
