@@ -4,7 +4,7 @@ public enum BasicStringOperation implements StringOperation {
     TRIM("trim the leading and lagging spaces in the text") {
         @Override
         public String apply(String input) {
-            return "";
+            return input.trim();
         }
 
     },
