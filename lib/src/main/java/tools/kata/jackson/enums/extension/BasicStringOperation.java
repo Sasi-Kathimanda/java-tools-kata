@@ -1,5 +1,7 @@
 package tools.kata.jackson.enums.extension;
 
+import java.util.Locale;
+
 public enum BasicStringOperation implements StringOperation {
     TRIM("trim the leading and lagging spaces in the text") {
         @Override
@@ -11,7 +13,7 @@ public enum BasicStringOperation implements StringOperation {
     UPPERCASE("convert the text to upper case") {
         @Override
         public String apply(String input) {
-            return null;
+            return input.toUpperCase(Locale.ENGLISH);
         }
     },
     REVERSE("revers the text") {

@@ -17,7 +17,7 @@ class BasicStringOperationTest {
     void givenOperationEnum_ShouldPerformUPPERCASEOperation() {
         String input = " Hello ";
         String actual = BasicStringOperation.UPPERCASE.apply(input);
-        assertEquals("HELLO", actual);
+        assertEquals(" HELLO ", actual);
     }
 
 }
