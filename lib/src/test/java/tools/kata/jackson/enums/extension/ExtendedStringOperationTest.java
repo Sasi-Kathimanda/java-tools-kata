@@ -15,4 +15,10 @@ class ExtendedStringOperationTest {
         var actual = ExtendedStringOperation.MD5_ENCODE.apply("Hello");
         assertEquals("8b1a9953c4611296a827abf8c47804d7", actual);
     }
+
+    @Test
+    void givenText_WhenBase6OperationApplied_ShouldGiveBase64Encoded() {
+        var actual = ExtendedStringOperation.BASE64_ENCODE.apply("Hello");
+        assertEquals("SGVsbG8=", actual);
+    }
 }
