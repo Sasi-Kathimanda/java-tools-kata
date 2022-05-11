@@ -15,5 +15,10 @@ class ImmutableOperationTest {
         var actual = ImmutableOperation.OPERATION_MAP.get(RemoteEnum.INVERT_CASE).apply("Sas");
         assertEquals("sAS", actual);
     }
+    @Test
+    void shouldUseThirdPartyEnumRemoveWhiteSpace_ReturnsNoWhitespace() {
+        var actual = ImmutableOperation.OPERATION_MAP.get(RemoteEnum.REMOVE_WHITESPACES).apply("S a s ");
+        assertEquals("Sas", actual);
+    }
 
 }
