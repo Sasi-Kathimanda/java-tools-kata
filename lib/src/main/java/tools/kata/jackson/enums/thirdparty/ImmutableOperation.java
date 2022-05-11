@@ -10,6 +10,7 @@ public class ImmutableOperation {
     static {
         OPERATION_MAP = new EnumMap<>(RemoteEnum.class);
         OPERATION_MAP.put(RemoteEnum.LOWERCASE, String::toLowerCase);
+        OPERATION_MAP.put(RemoteEnum.INVERT_CASE, s -> "");
     }
 
     private ImmutableOperation() {
