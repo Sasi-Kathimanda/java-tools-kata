@@ -8,7 +8,6 @@ public enum BasicStringOperation implements StringOperation {
         public String apply(String input) {
             return input.trim();
         }
-
     },
     UPPERCASE("convert the text to upper case") {
         @Override
@@ -24,14 +23,7 @@ public enum BasicStringOperation implements StringOperation {
     };
 
     BasicStringOperation(String description) {
-        this.description = description;
     }
 
-    private final String description;
-
-    @Override
-    public String getDescription() {
-        return description;
-    }
 
 }

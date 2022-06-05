@@ -6,7 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 public enum ExtendedStringOperation implements StringOperation {
-    MD5_ENCODE("encode the text to md5 string"){
+    MD5_ENCODE("encode the text to md5 string") {
         @Override
         public String apply(String input) {
             return DigestUtils.md5Hex(input);
@@ -25,8 +25,4 @@ public enum ExtendedStringOperation implements StringOperation {
         this.description = description;
     }
 
-    @Override
-    public String getDescription() {
-        return description;
-    }
 }

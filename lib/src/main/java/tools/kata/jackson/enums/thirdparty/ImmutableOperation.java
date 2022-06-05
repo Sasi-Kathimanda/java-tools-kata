@@ -14,8 +14,8 @@ public class ImmutableOperation {
         OPERATION_MAP.put(RemoteEnum.REMOVE_WHITESPACES, s -> s.replace(" ", ""));
     }
 
-    private static String reverseCase(final String text) {
-        var chars = text.toCharArray();
+    private static String reverseCase(final String input) {
+        var chars = input.toCharArray();
         for (int i = 0; i < chars.length; i++) {
             char c = chars[i];
             if (Character.isUpperCase(c)) {
