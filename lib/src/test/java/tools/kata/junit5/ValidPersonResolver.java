@@ -1,0 +1,28 @@
+package tools.kata.junit5;
+
+import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.extension.ParameterContext;
+import org.junit.jupiter.api.extension.ParameterResolutionException;
+import org.junit.jupiter.api.extension.ParameterResolver;
+import tools.kata.jackson.Person;
+
+import java.time.Instant;
+import java.util.Date;
+import java.util.List;
+import java.util.Random;
+
+public class ValidPersonResolver implements ParameterResolver {
+    @Override
+    public boolean supportsParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
+        return parameterContext.getParameter().getParameterizedType() == Person.class;
+    }
+
+    @Override
+    public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
+        List<Person> persons = List.of(
+                new Person("Sasi", 24, Date.from(Instant.parse("1984-12-02T10:15:30.00Z"))),
+                new Person("Kiran", 14, Date.from(Instant.parse("1994-12-02T10:15:30.00Z"))),
+                new Person("Raja", 18, Date.from(Instant.parse("2004-12-02T10:15:30.00Z"))));
+        return persons.get(new Random().nextInt(persons.size()));
+    }
+}
