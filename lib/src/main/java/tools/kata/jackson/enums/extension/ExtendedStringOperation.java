@@ -19,10 +19,6 @@ public enum ExtendedStringOperation implements StringOperation {
         }
     };
 
-    private final String description;
-
     ExtendedStringOperation(String description) {
-        this.description = description;
     }
-
 }

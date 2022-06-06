@@ -24,6 +24,4 @@ public enum BasicStringOperation implements StringOperation {
 
     BasicStringOperation(String description) {
     }
-
-
 }
