@@ -10,7 +10,7 @@ public class PersonValidator {
         if (person == null) {
             return false;
         }
-        var pattern = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
+        var pattern = Pattern.compile("[^a-z]", Pattern.CASE_INSENSITIVE);
         if (pattern.matcher(person.getName()).find())
             throw new IllegalArgumentException("invalid symbols or number in name" + person.getName());
         return true;
