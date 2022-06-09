@@ -18,12 +18,13 @@ class PersonValidatorTest {
             Assertions.assertDoesNotThrow(() -> new PersonValidator().validPerson(person));
         }
     }
+
     @Nested
     @ExtendWith(InvalidPersonResolver.class)
     class InValidPersonValidator {
         @RepeatedTest(value = 10)
         void validatePersonName(Person person) {
-            Assertions.assertDoesNotThrow(() -> new PersonValidator().validPerson(person));
+            Assertions.assertThrows(IllegalArgumentException.class, () -> new PersonValidator().validPerson(person), "Invalid personName=" + person.getName());
         }
     }
 }
