@@ -24,7 +24,8 @@ class PersonValidatorTest {
     class InValidPersonValidator {
         @RepeatedTest(value = 10)
         void validatePersonName(Person person) {
-            Assertions.assertThrows(IllegalArgumentException.class, () -> new PersonValidator().validPerson(person), "Invalid personName=" + person.getName());
+            var validator = new PersonValidator();
+            Assertions.assertThrows(IllegalArgumentException.class, () -> validator.validPerson(person), "Invalid personName=" + person.getName());
         }
     }
 }
