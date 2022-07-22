@@ -1,5 +1,6 @@
 package tools.kata.jackson.enums.extension;
 
+import com.google.common.hash.Hashing;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import java.nio.charset.StandardCharsets;
@@ -17,10 +18,10 @@ public enum ExtendedStringOperation implements StringOperation {
         public String apply(String input) {
             return Base64.getEncoder().encodeToString(input.getBytes(StandardCharsets.UTF_8));
         }
-    }, SHA256_HASH("") {
+    }, SHA256_HASH("encode the text to sha 256 string") {
         @Override
         public String apply(String input) {
-            return "";
+            return Hashing.sha256().hashString(input, StandardCharsets.UTF_8).toString();
         }
     };
 
