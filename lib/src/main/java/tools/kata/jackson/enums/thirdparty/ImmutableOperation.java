@@ -11,7 +11,7 @@ public class ImmutableOperation {
         OPERATION_MAP = new EnumMap<>(RemoteEnum.class);
         OPERATION_MAP.put(RemoteEnum.LOWERCASE, String::toLowerCase);
         OPERATION_MAP.put(RemoteEnum.INVERT_CASE, ImmutableOperation::reverseCase);
-        OPERATION_MAP.put(RemoteEnum.REMOVE_WHITESPACES, s -> s.replace(" ", ""));
+        OPERATION_MAP.put(RemoteEnum.REMOVE_WHITESPACES, s -> s.replaceAll("\\s", ""));
     }
 
     private static String reverseCase(final String input) {
