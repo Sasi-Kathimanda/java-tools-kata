@@ -17,7 +17,7 @@ class ExtendedStringOperationTest {
     }
 
     @Test
-    void givenText_WhenBase6OperationApplied_ShouldGiveBase64Encoded() {
+    void givenText_WhenBase64OperationApplied_ShouldGiveBase64Encoded() {
         var actual = ExtendedStringOperation.BASE64_ENCODE.apply("Hello");
         assertEquals("SGVsbG8=", actual);
     }
