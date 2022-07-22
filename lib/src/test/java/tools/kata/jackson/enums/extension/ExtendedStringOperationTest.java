@@ -21,4 +21,10 @@ class ExtendedStringOperationTest {
         var actual = ExtendedStringOperation.BASE64_ENCODE.apply("Hello");
         assertEquals("SGVsbG8=", actual);
     }
+
+    @Test
+    void givenText_WhenSHA256OperationApplied_ShouldGiveSHA256HASH() {
+        var actual = ExtendedStringOperation.SHA256_HASH.apply("Hello");
+        assertEquals("185f8db32271fe25f561a6fc938b2e264306ec304eda518007d1764826381969", actual);
+    }
 }

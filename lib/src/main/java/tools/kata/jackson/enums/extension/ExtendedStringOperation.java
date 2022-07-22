@@ -17,6 +17,11 @@ public enum ExtendedStringOperation implements StringOperation {
         public String apply(String input) {
             return Base64.getEncoder().encodeToString(input.getBytes(StandardCharsets.UTF_8));
         }
+    }, SHA256_HASH("") {
+        @Override
+        public String apply(String input) {
+            return "";
+        }
     };
 
     ExtendedStringOperation(String description) {
