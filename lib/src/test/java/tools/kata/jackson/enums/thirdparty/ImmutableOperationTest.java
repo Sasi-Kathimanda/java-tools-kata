@@ -2,7 +2,7 @@ package tools.kata.jackson.enums.thirdparty;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ImmutableOperationTest {
     @Test
@@ -20,5 +20,4 @@ class ImmutableOperationTest {
         var actual = ImmutableOperation.OPERATION_MAP.get(RemoteEnum.REMOVE_WHITESPACES).apply("S a s ");
         assertEquals("Sas", actual);
     }
-
 }
