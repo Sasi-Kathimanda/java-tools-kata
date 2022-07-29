@@ -16,7 +16,7 @@ class JsonWriterTest {
     public static final String PERSON_JSON = "{\"name\":\"Sas\",\"age\":18,\"dob\":470830530000}";
     public static final String PERSON_JSON_HUMAN_READABLE_DATE = "{\"name\":\"Sas\",\"age\":18,\"dob\":\"1984-12-02T10:15:30.000+00:00\"}";
     JsonWriter sut;
-    Person person = new Person("Sas", 18, Residence.FLAT, Date.from(Instant.parse("1984-12-02T10:15:30.00Z")));
+    Person person = new Person("Sas", 18, null, Date.from(Instant.parse("1984-12-02T10:15:30.00Z")));
 
     @BeforeEach
     void setUp() {
