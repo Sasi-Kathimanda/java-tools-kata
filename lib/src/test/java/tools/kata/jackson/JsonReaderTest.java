@@ -14,7 +14,10 @@ import java.net.URL;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 class JsonReaderTest {
     public static final String PERSON_JSON = "{\"name\":\"Sas\",\"age\":18}";
