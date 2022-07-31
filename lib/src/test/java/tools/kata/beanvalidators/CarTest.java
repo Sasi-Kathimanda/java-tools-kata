@@ -26,4 +26,11 @@ class CarTest {
         var violations = validator.validate(car);
         assertEquals(1, violations.size());
     }
+
+    @Test
+    void whenLicencePlateIsOutOfRange() {
+        var car = new Car("Benz", "ARG",4);
+        var violations = validator.validate(car);
+        assertEquals(1, violations.size());
+    }
 }
