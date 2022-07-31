@@ -7,5 +7,5 @@
 
 - [ ] Lombok
  
-- [ ] Bean Validation
+- [ ] Bean Validation (JSR 380 (https://www.oracle.com/technical-resources/articles/java/ma14-architect-annotations.html))
 
