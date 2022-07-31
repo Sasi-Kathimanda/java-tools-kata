@@ -1,7 +1,10 @@
 package tools.kata.beanvalidators;
 
 
+import javax.validation.constraints.NotNull;
+
 public class Car {
+    @NotNull
     private String manufacturer;
     private String licencePlate;
     private int seatCount;
