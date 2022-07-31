@@ -2,10 +2,12 @@ package tools.kata.beanvalidators;
 
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 public class Car {
     @NotNull
     private String manufacturer;
+    @Size(min = 4, max = 14)
     private String licencePlate;
     private int seatCount;
 
