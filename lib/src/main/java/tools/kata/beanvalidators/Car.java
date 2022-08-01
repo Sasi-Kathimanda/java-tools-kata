@@ -1,6 +1,7 @@
 package tools.kata.beanvalidators;
 
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -9,6 +10,7 @@ public class Car {
     private String manufacturer;
     @Size(min = 4, max = 14)
     private String licencePlate;
+    @Min(2)
     private int seatCount;
 
     public Car(String manufacturer, String licencePlate, int seatCount) {

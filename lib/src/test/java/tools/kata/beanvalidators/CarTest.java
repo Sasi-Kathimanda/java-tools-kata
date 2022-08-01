@@ -32,7 +32,6 @@ class CarTest {
         var car = new Car("Benz", "ARG", 4);
         var violations = validator.validate(car);
         assertEquals(1, violations.size());
-        violations.
     }
 
     @Test
