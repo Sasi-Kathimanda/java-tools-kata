@@ -29,7 +29,15 @@ class CarTest {
 
     @Test
     void whenLicencePlateIsOutOfRange() {
-        var car = new Car("Benz", "ARG",4);
+        var car = new Car("Benz", "ARG", 4);
+        var violations = validator.validate(car);
+        assertEquals(1, violations.size());
+        violations.
+    }
+
+    @Test
+    void whenSeatNumberIsLessThanRecommended() {
+        var car = new Car("Audi q8", "RV07YFG", 1);
         var violations = validator.validate(car);
         assertEquals(1, violations.size());
     }
