@@ -21,7 +21,7 @@ class CarTest {
     @Test
     void whenManufacturerIsNull() {
         //When
-        var car = new Car(null, "RV07YFG", 4);
+        var car = new Car(null, "RV07YFG", 4, null);
         //Then
         var violations = validator.validate(car);
         assertEquals(1, violations.size());
@@ -29,14 +29,14 @@ class CarTest {
 
     @Test
     void whenLicencePlateIsOutOfRange() {
-        var car = new Car("Benz", "ARG", 4);
+        var car = new Car("Benz", "ARG", 4, null);
         var violations = validator.validate(car);
         assertEquals(1, violations.size());
     }
 
     @Test
     void whenSeatNumberIsLessThanRecommended() {
-        var car = new Car("Audi q8", "RV07YFG", 1);
+        var car = new Car("Audi Q7", "RV07YFG", 1, null);
         var violations = validator.validate(car);
         assertEquals(1, violations.size());
     }

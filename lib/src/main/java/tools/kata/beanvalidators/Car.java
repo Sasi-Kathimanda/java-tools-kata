@@ -4,18 +4,21 @@ package tools.kata.beanvalidators;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 
 public class Car {
     @NotNull
-    private String manufacturer;
+    private final String manufacturer;
     @Size(min = 4, max = 14)
-    private String licencePlate;
+    private final String licencePlate;
     @Min(2)
-    private int seatCount;
+    private final int seatCount;
+    private final LocalDate registrationDate;
 
-    public Car(String manufacturer, String licencePlate, int seatCount) {
+    public Car(@NotNull String manufacturer, String licencePlate, int seatCount, LocalDate registrationDate) {
         this.manufacturer = manufacturer;
         this.licencePlate = licencePlate;
         this.seatCount = seatCount;
+        this.registrationDate = registrationDate;
     }
 }
