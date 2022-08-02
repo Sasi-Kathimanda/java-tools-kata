@@ -3,6 +3,7 @@ package tools.kata.beanvalidators;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
@@ -13,6 +14,8 @@ public class Car {
     private final String licencePlate;
     @Min(2)
     private final int seatCount;
+    @Past
+    @NotNull
     private final LocalDate registrationDate;
 
     public Car(@NotNull String manufacturer, String licencePlate, int seatCount, LocalDate registrationDate) {

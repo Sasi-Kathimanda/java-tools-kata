@@ -7,11 +7,14 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 
 
+import java.time.LocalDate;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CarTest {
     private Car sut;
     private static Validator validator;
+    private static final LocalDate regDate = LocalDate.of(2017, 3, 19);
 
     @BeforeEach
     void setUp() {
@@ -21,7 +24,7 @@ class CarTest {
     @Test
     void whenManufacturerIsNull() {
         //When
-        var car = new Car(null, "RV07YFG", 4, null);
+        var car = new Car(null, "RV07YFG", 4, regDate);
         //Then
         var violations = validator.validate(car);
         assertEquals(1, violations.size());
@@ -29,14 +32,14 @@ class CarTest {
 
     @Test
     void whenLicencePlateIsOutOfRange() {
-        var car = new Car("Benz", "ARG", 4, null);
+        var car = new Car("Benz", "ARG", 4, regDate);
         var violations = validator.validate(car);
         assertEquals(1, violations.size());
     }
 
     @Test
     void whenSeatNumberIsLessThanRecommended() {
-        var car = new Car("Audi Q7", "RV07YFG", 1, null);
+        var car = new Car("Audi Q7", "RV07YFG", 1, regDate);
         var violations = validator.validate(car);
         assertEquals(1, violations.size());
     }
