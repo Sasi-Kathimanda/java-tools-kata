@@ -1,6 +1,7 @@
 package tools.kata.beanvalidators;
 
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -17,7 +18,7 @@ public class Car {
     @Past
     @NotNull
     private final LocalDate registrationDate;
-
+    @Email
     private final String driverEmail;
 
     public Car(@NotNull String manufacturer, String licencePlate, int seatCount, LocalDate registrationDate, String driverEmail) {
