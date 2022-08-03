@@ -24,7 +24,7 @@ class CarTest {
     @Test
     void whenManufacturerIsNull() {
         //When
-        var car = new Car(null, "RV07YFG", 4, regDate);
+        var car = new Car(null, "RV07YFG", 4, regDate, null);
         //Then
         var violations = validator.validate(car);
         assertEquals(1, violations.size());
@@ -32,14 +32,14 @@ class CarTest {
 
     @Test
     void whenLicencePlateIsOutOfRange() {
-        var car = new Car("Benz", "ARG", 4, regDate);
+        var car = new Car("Benz", "ARG", 4, regDate, null);
         var violations = validator.validate(car);
         assertEquals(1, violations.size());
     }
 
     @Test
     void whenSeatNumberIsLessThanRecommended() {
-        var car = new Car("Audi Q7", "RV07YFG", 1, regDate);
+        var car = new Car("Audi Q7", "RV07YFG", 1, regDate, null);
         var violations = validator.validate(car);
         assertEquals(1, violations.size());
     }
@@ -47,7 +47,7 @@ class CarTest {
     @Test
     void whenRegDateIsInFuture() {
         LocalDate futureDate =  LocalDate.of(2027,3,19);
-        var car = new Car("Audi Q7", "RV07YFG", 2, futureDate);
+        var car = new Car("Audi Q7", "RV07YFG", 2, futureDate, null);
         var violations = validator.validate(car);
         assertEquals(1, violations.size());
     }

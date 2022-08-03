@@ -18,10 +18,13 @@ public class Car {
     @NotNull
     private final LocalDate registrationDate;
 
-    public Car(@NotNull String manufacturer, String licencePlate, int seatCount, LocalDate registrationDate) {
+    private final String driverEmail;
+
+    public Car(@NotNull String manufacturer, String licencePlate, int seatCount, LocalDate registrationDate, String driverEmail) {
         this.manufacturer = manufacturer;
         this.licencePlate = licencePlate;
         this.seatCount = seatCount;
         this.registrationDate = registrationDate;
+        this.driverEmail = driverEmail;
     }
 }
