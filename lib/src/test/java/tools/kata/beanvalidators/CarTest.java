@@ -51,4 +51,12 @@ class CarTest {
         var violations = validator.validate(car);
         assertEquals(1, violations.size());
     }
+
+    @Test
+    void whenDriverEmailIsNotValid() {
+        LocalDate futureDate =  LocalDate.of(2027,3,19);
+        var car = new Car("Audi Q7", "RV07YFG", 2, regDate, "xyz");
+        var violations = validator.validate(car);
+        assertEquals(1, violations.size());
+    }
 }
