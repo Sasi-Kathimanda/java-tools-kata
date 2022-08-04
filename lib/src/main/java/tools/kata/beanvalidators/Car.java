@@ -1,6 +1,7 @@
 package tools.kata.beanvalidators;
 
 
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -21,6 +22,7 @@ public class Car {
     private final LocalDate registrationDate;
     @Email
     private final String driverEmail;
+    @Digits(integer = 4, fraction = 2)
     private final BigDecimal price;
     public Car(@NotNull String manufacturer, String licencePlate, int seatCount, LocalDate registrationDate, String driverEmail, BigDecimal price) {
         this.manufacturer = manufacturer;

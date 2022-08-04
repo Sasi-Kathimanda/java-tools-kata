@@ -62,7 +62,7 @@ class CarTest {
 
     @Test
     void whenCarPriceIsNotValid() {
-        var car = new Car("Audi Q7", "RV07YFG", 2, regDate, "xyz@xyz.com", BigDecimal.ZERO);
+        var car = new Car("Audi Q7", "RV07YFG", 2, regDate, "xyz@xyz.com", new BigDecimal("9999.789"));
         var violations = validator.validate(car);
         assertEquals(1, violations.size());
     }
