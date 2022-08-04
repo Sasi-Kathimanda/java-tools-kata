@@ -6,6 +6,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class Car {
@@ -20,12 +21,13 @@ public class Car {
     private final LocalDate registrationDate;
     @Email
     private final String driverEmail;
-
-    public Car(@NotNull String manufacturer, String licencePlate, int seatCount, LocalDate registrationDate, String driverEmail) {
+    private final BigDecimal price;
+    public Car(@NotNull String manufacturer, String licencePlate, int seatCount, LocalDate registrationDate, String driverEmail, BigDecimal price) {
         this.manufacturer = manufacturer;
         this.licencePlate = licencePlate;
         this.seatCount = seatCount;
         this.registrationDate = registrationDate;
         this.driverEmail = driverEmail;
+        this.price = price;
     }
 }
