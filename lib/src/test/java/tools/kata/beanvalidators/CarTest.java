@@ -66,4 +66,11 @@ class CarTest {
         var violations = validator.validate(car);
         assertEquals(1, violations.size());
     }
+
+    @Test
+    void whenThePhoneNumberIsNotValid() {
+        var car = new Car("Audi Q7", "RV07YFG", 2, regDate, "xyz@xyz.com", new BigDecimal("9999.78"), "1234567890");
+        var violations = validator.validate(car);
+        assertEquals(1, violations.size());
+    }
 }
