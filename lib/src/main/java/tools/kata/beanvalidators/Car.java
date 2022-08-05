@@ -6,6 +6,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -24,7 +25,7 @@ public class Car {
     private final String driverEmail;
     @Digits(integer = 4, fraction = 2)
     private final BigDecimal price;
-
+    @Pattern(regexp="\\(\\d{3}\\)\\d{3}-\\d{4}")
     private final String phoneNumber;
     public Car(@NotNull String manufacturer, String licencePlate, int seatCount, LocalDate registrationDate, String driverEmail, BigDecimal price, String phoneNumber) {
         this.manufacturer = manufacturer;
