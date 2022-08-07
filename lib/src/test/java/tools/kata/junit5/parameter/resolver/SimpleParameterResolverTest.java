@@ -1,13 +1,12 @@
-package tools.kata.junit5;
+package tools.kata.junit5.parameter.resolver;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import tools.kata.jackson.Person;
 
-@ExtendWith(ParameterResolver.class)
-class ParameterResolverTest {
-
+@ExtendWith(SimpleParameterResolver.class)
+class SimpleParameterResolverTest {
     @Test
     void testIt(Person person) {
         Assertions.assertNotNull(person);
