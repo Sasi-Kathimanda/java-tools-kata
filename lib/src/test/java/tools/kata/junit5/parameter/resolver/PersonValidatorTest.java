@@ -9,6 +9,7 @@ import tools.kata.jackson.Person;
 import tools.kata.junit5.PersonValidator;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 @DisplayName("Testing PersonValidator")
@@ -28,7 +29,7 @@ class PersonValidatorTest {
         @RepeatedTest(value = 10)
         void validatePersonName(Person person) {
             var validator = new PersonValidator();
-            Assertions.assertThrows(IllegalArgumentException.class, () -> validator.validPerson(person), "Invalid personName=" + person.getName());
+           assertThrows(IllegalArgumentException.class, () -> validator.validPerson(person), "Invalid personName=" + person.getName());
         }
     }
 }
