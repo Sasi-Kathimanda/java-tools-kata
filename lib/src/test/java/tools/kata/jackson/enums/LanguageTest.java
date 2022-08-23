@@ -21,7 +21,6 @@ class LanguageTest {
         assertEquals(Language.ENGLISH, Language.values()[1]);
         assertEquals(Language.TAMIL, Language.values()[2]);
         assertEquals("TELUGU", Language.values()[0].name());
-        assertEquals(Language.TELUGU, Language.values()[0]);
     }
 
     @Test
