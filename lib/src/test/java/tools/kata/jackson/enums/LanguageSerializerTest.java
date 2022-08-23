@@ -19,7 +19,7 @@ class LanguageSerializerTest {
 
     @Test
     void serializeWillSpecifyTheStructureOfEnumYouLike() throws IOException {
-        String actual = mapper.writeValueAsString(Language.TELUGU);
+        String actual = mapper.writeValueAsString(Language.TELUGU); // achieved using @JsonFormat(shape = JsonFormat.Shape.OBJECT)
         Assertions.assertEquals("{\"prefix\":\"TEL\",\"message\":\"Namaskaram\"}", actual);
     }
 }

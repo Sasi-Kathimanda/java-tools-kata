@@ -20,7 +20,7 @@ class EnumWriterTest {
     @Test
     void testEnumWriterDefaultBehaviour() throws JsonProcessingException {
         var actualEnumString = sut.writeEnumAsJsonString(Language.TELUGU);
-        assertEquals(EXPECTED_ENUM, actualEnumString);
+        assertEquals(EXPECTED_ENUM, actualEnumString);// This achieved by using this @JsonFormat(shape = JsonFormat.Shape.OBJECT)
     }
 
     @Test
