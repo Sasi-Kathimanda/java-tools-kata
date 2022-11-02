@@ -1,7 +1,8 @@
 package tools.kata.beanvalidators;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class UserAccountTest {
     private UserAccount sut;
@@ -9,6 +10,6 @@ class UserAccountTest {
     @Test
     void throwsExceptionWhenUserNameIsNull() {
         //Given
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new UserAccount( null, null));
+        assertThrows(IllegalArgumentException.class, () -> new UserAccount( null, null));
     }
 }
