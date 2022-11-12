@@ -1,6 +1,9 @@
 package tools.kata.beanvalidators;
 
 
+import tools.kata.beanvalidators.custom.CaseMode;
+import tools.kata.beanvalidators.custom.CheckCase;
+
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
@@ -15,6 +18,7 @@ public class Car {
     @NotNull
     private final String manufacturer;
     @Size(min = 4, max = 14)
+    @CheckCase(CaseMode.LOWERCASE)
     private final String licencePlate;
     @Min(2)
     private final int seatCount;

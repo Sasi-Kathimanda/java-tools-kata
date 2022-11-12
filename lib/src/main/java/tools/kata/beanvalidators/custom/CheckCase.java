@@ -1,6 +1,7 @@
 package tools.kata.beanvalidators.custom;
 
 import javax.validation.Constraint;
+import javax.validation.Payload;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -11,11 +12,15 @@ import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
 
 @Documented
-@Constraint(validatedBy = CaseCheckValidator.class)
+@Constraint(validatedBy = CheckCaseValidator.class)
 @Target({METHOD, FIELD, ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface CaseCheck {
+public @interface CheckCase {
     String message() default "";
+
+    Class<?>[] groups() default {};
+
+    Class<? extends Payload>[] payload() default {};
 
     CaseMode value();
 }
