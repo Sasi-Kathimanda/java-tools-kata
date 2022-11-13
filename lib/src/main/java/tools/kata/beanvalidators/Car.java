@@ -18,7 +18,7 @@ public class Car {
     @NotNull
     private final String manufacturer;
     @Size(min = 4, max = 14)
-    @CheckCase(CaseMode.LOWERCASE)
+    @CheckCase(CaseMode.UPPERCASE)
     private final String licencePlate;
     @Min(2)
     private final int seatCount;

@@ -16,7 +16,7 @@ import static java.lang.annotation.ElementType.METHOD;
 @Target({METHOD, FIELD, ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CheckCase {
-    String message() default "";
+    String message() default "invalid Case supplied";
 
     Class<?>[] groups() default {};
 
