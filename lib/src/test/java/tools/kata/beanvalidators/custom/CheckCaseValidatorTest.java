@@ -31,4 +31,14 @@ class CheckCaseValidatorTest {
         assertEquals(1, violations.size());
         assertEquals("invalid Case supplied", violations.iterator().next().getMessage());
     }
+
+    @Test
+    void givenUppercase_ShouldNotReturnViolation_Message() {
+        //given
+        var car = new Car("Audi A7", "RV07YFG", 4, regDate, "sk@sk.com", BigDecimal.ZERO, "(999)888-1234");
+        //when
+        var violations = validator.validate(car);
+        //then
+        assertEquals(0, violations.size());
+    }
 }
