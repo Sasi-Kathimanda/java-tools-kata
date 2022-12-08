@@ -15,7 +15,7 @@ public class JsonReader {
         return new ObjectMapper().readValue(jsonString, aClass);
     }
 
-    protected  <T> T readFromJsonString(String jsonString, Class<T> aClass , ObjectMapper mapper) throws JsonProcessingException {
+    protected <T> T readFromJsonString(String jsonString, Class<T> aClass, ObjectMapper mapper) throws JsonProcessingException {
         return mapper.readValue(jsonString, aClass);
     }
 
@@ -27,10 +27,8 @@ public class JsonReader {
         return new ObjectMapper().readValue(url, aClass);
     }
 
-    //TODO: accept generic type ?
-    protected List<Person> readListFromJsonString(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<>() {
-        });
+    protected <T> T readListFromJsonString(String json, TypeReference<T> typeReference) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, typeReference);
     }
 
     public Map<String, String> readAsMapFromJson(String json) throws JsonProcessingException {

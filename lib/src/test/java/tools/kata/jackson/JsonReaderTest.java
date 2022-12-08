@@ -1,6 +1,7 @@
 package tools.kata.jackson;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
@@ -56,7 +57,7 @@ class JsonReaderTest {
 
     @Test
     void readPersonsFromJson() throws JsonProcessingException {
-        List<Person> actual = sut.readListFromJsonString(PERSON_LIST_JSON);
+        List<Person> actual = sut.readListFromJsonString(PERSON_LIST_JSON, new TypeReference<>() {});
         assertEquals(2, actual.size());
         assertEquals("Sas", actual.get(0).getName());
         assertEquals(18, actual.get(0).getAge());
