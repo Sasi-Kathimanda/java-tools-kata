@@ -10,7 +10,8 @@ import javax.validation.Validator;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 class CheckCaseValidatorTest {
     private static Validator validator;
