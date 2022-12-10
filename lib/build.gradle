@@ -1,5 +1,6 @@
 plugins {
     id 'java-library'
+    id 'checkstyle'
 }
 
 repositories {
@@ -36,4 +37,28 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+checkstyle {
+    toolVersion '10.5.0'
+    configFile file("${rootDir}/lib/config/checkstyle/checkstyle.xml")
+//    configProperties.checkstyleSuppressionsPath = file("$configDir/config/checkstyle/suppressions.xml").absolutePath
+    ignoreFailures = true
+}
+
+checkstyleMain {
+    source = sourceSets.main.allSource
+}
+
+checkstyleTest {
+    source ='src/test/java'
+}
+configurations {
+    checkstyle
+}
+
+dependencies{
+//    assert project.hasProperty("checkstyleVersion")
+    checkstyle "com.puppycrawl.tools:checkstyle:10.5.0"
+//    checkstyle "com.github.sevntu-checkstyle:sevntu-checks:10.5.0"
 }
