@@ -7,7 +7,7 @@
 <module name="Checker">
     <module name="LineLength">
         <!-- Checks if a line is too long. -->
-        <property name="max" value="120" default="120" />
+        <property name="max" value="140" default="120" />
         <property name="severity" value="error" />
 
         <!--
