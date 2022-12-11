@@ -11,8 +11,9 @@ public class PersonValidator {
             return false;
         }
         var pattern = Pattern.compile("[^a-z]", Pattern.CASE_INSENSITIVE);
-        if (pattern.matcher(person.getName()).find())
+        if (pattern.matcher(person.getName()).find()) {
             throw new IllegalArgumentException("invalid symbols or number in name" + person.getName());
+        }
         return true;
     }
 }
