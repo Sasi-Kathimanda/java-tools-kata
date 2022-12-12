@@ -1,8 +1,8 @@
 package tools.kata.beanvalidators;
-
-
 import tools.kata.beanvalidators.custom.CaseMode;
 import tools.kata.beanvalidators.custom.CheckCase;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
@@ -10,8 +10,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.math.BigDecimal;
-import java.time.LocalDate;
 
 public class Car {
     @NotNull
