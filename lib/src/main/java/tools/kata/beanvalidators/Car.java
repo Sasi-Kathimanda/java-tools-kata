@@ -3,7 +3,6 @@ package tools.kata.beanvalidators;
 
 import tools.kata.beanvalidators.custom.CaseMode;
 import tools.kata.beanvalidators.custom.CheckCase;
-
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
