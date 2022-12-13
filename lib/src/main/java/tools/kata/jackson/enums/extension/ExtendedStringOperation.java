@@ -2,7 +2,6 @@ package tools.kata.jackson.enums.extension;
 
 import com.google.common.hash.Hashing;
 import org.apache.commons.codec.digest.DigestUtils;
-
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
