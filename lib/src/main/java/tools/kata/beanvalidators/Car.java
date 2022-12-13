@@ -1,4 +1,5 @@
 package tools.kata.beanvalidators;
+
 import tools.kata.beanvalidators.custom.CaseMode;
 import tools.kata.beanvalidators.custom.CheckCase;
 import java.math.BigDecimal;
@@ -26,8 +27,9 @@ public class Car {
     private final String driverEmail;
     @Digits(integer = 4, fraction = 2)
     private final BigDecimal price;
-    @Pattern(regexp="\\(\\d{3}\\)\\d{3}-\\d{4}")
+    @Pattern(regexp = "\\(\\d{3}\\)\\d{3}-\\d{4}")
     private final String phoneNumber;
+
     public Car(@NotNull String manufacturer, String licencePlate, int seatCount, LocalDate registrationDate, String driverEmail, BigDecimal price, String phoneNumber) {
         this.manufacturer = manufacturer;
         this.licencePlate = licencePlate;
