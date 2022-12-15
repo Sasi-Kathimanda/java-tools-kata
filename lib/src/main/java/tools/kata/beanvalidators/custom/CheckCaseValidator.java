@@ -13,9 +13,13 @@ public class CheckCaseValidator implements ConstraintValidator<CheckCase, String
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-        if (value == null) return true;
+        if (value == null) {
+            return true;
+        }
         if (CaseMode.UPPERCASE.equals(caseMode)) {
             return value.equals(value.toUpperCase());
-        } else return value.equals(value.toLowerCase());
+        } else {
+            return value.equals(value.toLowerCase());
+        }
     }
 }
