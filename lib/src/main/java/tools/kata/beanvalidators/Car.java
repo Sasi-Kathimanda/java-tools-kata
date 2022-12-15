@@ -30,7 +30,8 @@ public class Car {
     @Pattern(regexp = "\\(\\d{3}\\)\\d{3}-\\d{4}")
     private final String phoneNumber;
 
-    public Car(@NotNull String manufacturer, String licencePlate, int seatCount, LocalDate registrationDate, String driverEmail, BigDecimal price, String phoneNumber) {
+    public Car(@NotNull String manufacturer,
+               String licencePlate, int seatCount, LocalDate registrationDate, String driverEmail, BigDecimal price, String phoneNumber) {
         this.manufacturer = manufacturer;
         this.licencePlate = licencePlate;
         this.seatCount = seatCount;
