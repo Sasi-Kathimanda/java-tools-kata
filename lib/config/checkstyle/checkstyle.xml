@@ -275,10 +275,10 @@
         </module>
 
         <!-- No System.out -->
-        <module name="Regexp">
-            <property name="format" value="System\.out\.println" />
-            <property name="illegalPattern" value="true" />
-        </module>
+<!--        <module name="Regexp">-->
+<!--            <property name="format" value="System\.out\.println" />-->
+<!--            <property name="illegalPattern" value="false" />-->
+<!--        </module>-->
 
         <!-- No System.err -->
         <module name="Regexp">

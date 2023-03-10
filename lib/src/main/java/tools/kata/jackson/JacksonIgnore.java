@@ -3,7 +3,6 @@ package tools.kata.jackson;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -16,6 +15,7 @@ public class JacksonIgnore {
             this.version = version;
         }
     }
+
     public static class Project {
         public final String name;
 
@@ -31,6 +31,7 @@ public class JacksonIgnore {
 
     public static void main(String[] args) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-        System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(new Project("test")));
+        var output = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(new Project("test"));
+        System.out.println(output);
     }
 }
