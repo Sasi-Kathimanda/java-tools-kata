@@ -24,7 +24,7 @@ dependencies {
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:29.0-jre'
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.4.2'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.2'
     implementation 'commons-codec:commons-codec:1.15'
 
     //Hibernate Validator
